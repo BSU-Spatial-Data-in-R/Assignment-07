@@ -18,7 +18,7 @@ The goals for this assignment are to:
 - give you practice summarizing raster datasets for inclusion in analysis databases
 - demonstrate the use of benchmarking to help scale analyses
 
-_By the end of the assignment_ you should have an `sf` object that contains all of the Gap Status 1 protected areas (PA) in our region along with the median income of the counties within 100km of each PA, the housing value within that same region, mammalian species richness, ecosystem productivity (as assessed by NDVI). Insert your code chunks beneath each step.
+_By the end of the assignment_ you should have an `sf` object that contains all of the Gap Status 1 protected areas (PA) in our region along with the median income of the counties within 25km of each PA, the housing value within that same region, mammalian species richness, ecosystem productivity (as assessed by NDVI). Insert your code chunks beneath each step.
 
 # Step 1: Load your libraries and the data
 Navigate to this week's data folder (`/opt/data/session16/`) and use `list.files()` to see the data contained therein. You should see the regional PA shapefile from last week (`reg_pas.shp`), along with rasters for mammalian richness (`mammal_rich.tif`; from [Clinton Jenkins' global biodiversity dataset](https://biodiversitymapping.org/index.php/download/)), land value (`regval.tif`) from the Nolte dataset, and a MODIS scene for the region (`modis.tif`). Load each into your workspace by assigning it to an object. Check the CRS and reproject where necessary,
@@ -35,7 +35,7 @@ Follow the example to use the `tidycensus` package to download median income by 
 Use `st_join` to connect your PAs dataset with every county within 100km and then use `group_by` and `summarise` to take the mean value of the median income data for each PA. By the time you are done with this step you should have the same number of rows that you had after your initial filter of the PAs (step 2).
 
 # Step 5: Buffer your PAs
-In order to get the raster data from the same area that you just estimated median income, you'll need to buffer the PAs by 100km
+In order to get the raster data from the same area that you just estimated median income, you'll need to buffer the PAs by 25km
 
 # Step 6: Crop all of the rasters to the extent of your buffered PA dataset
 Before you start doing a bunch of raster processing you'll want to get rid of the parts you don't need. Do that here. Remember you'll want all of your rasters to have the same CRS.
